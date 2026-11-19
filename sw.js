@@ -1,4 +1,4 @@
-const C='royal-chess-v1',F=['./','./index.html','./manifest.json','./icons/icon-192.png','./icons/icon-512.png'];
+const C='royal-chess-v2',F=['./','./index.html','./manifest.json','./icons/icon-192.png','./icons/icon-512.png','./logo.jpg','./bg.jpg','./intro.mp4'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(F)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;
